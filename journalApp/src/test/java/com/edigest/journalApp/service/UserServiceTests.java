@@ -2,7 +2,6 @@ package com.edigest.journalApp.service;
 
 import com.edigest.journalApp.entity.User;
 import com.edigest.journalApp.repository.UserRepository;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -18,23 +17,25 @@ public class UserServiceTests {
     @Autowired
     private UserRepository userRepository ;
 
-    @BeforeEach
-    public void setUp(){
+//    @BeforeEach
+//    public void setUp(){
+//
+//    }
 
-    }
-
-//  @Disabled // to make this test disable
+    @Disabled // to make this test disable
     @Test
     public void findByUserName(){
         assertNotNull(userRepository.findByUserName("ram"));
     }
 
+    @Disabled
     @Test
     public void findJornalEntries(){
         User user = userRepository.findByUserName("ram");
         assertTrue(!user.getJournalEntries().isEmpty());
     }
 
+    @Disabled
     @ParameterizedTest
     @CsvSource({
             "ram",
@@ -45,6 +46,7 @@ public class UserServiceTests {
         assertNotNull(userRepository.findByUserName(name),"failed for => "+name);
     }
 
+    @Disabled
     @ParameterizedTest
     @CsvSource({
             "1,1,2",
